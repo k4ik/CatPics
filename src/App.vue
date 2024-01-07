@@ -1,11 +1,18 @@
 <template>
-    <div>
-
-    </div>
+    <body class="bg-gray-100 h-screen">
+        <main class="w-full h-full flex justify-center items-center">
+            <ImageCard/>
+        </main>
+    </body>
 </template>
 
 <script>
+    import ImageCard from "./components/ImageCard.vue"
+
     export default {
-        name: "App"
+        name: "App",
+        components: {
+            ImageCard
+        }
     }
 </script>
