@@ -7,7 +7,7 @@
 </template>
 
 <script>
-    import ImageCard from "./components/ImageCard.vue"
+    import ImageCard from "./components/ImageCard/ImageCard.vue"
 
     export default {
         name: "App",
