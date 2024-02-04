@@ -34,7 +34,6 @@ Make sure you have Node.js installed on your machine.
     ```bash
     http://localhost:5173/
     ```
-3. Enter a city name in the search field and press Enter to see the weather information.
 
 ### Contribution
 Contributions are welcome! Feel free to submit pull requests or open issues.
