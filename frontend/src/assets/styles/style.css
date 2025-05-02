@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+:root {
+  --kabul: #5a3f3f;
+  --bazaar: #9d7b7b;
+  --cold-turkey: #c7b3b3;
+  --ebb: #e4d8d8;
+  --soft-peach: #faf5f5;
+}
