@@ -16,14 +16,12 @@ const playSound = async () => {
   audioSource.value = paths[random];
   await nextTick();
   audio.value.play();
-
-  console.log('button')
 };
 </script>
 
 <template>
-  <button @click="playSound" class="bg-[var(--bazaar)] w-[54px] h-[54px] rounded-full flex items-center justify-center hover:bg-[var(--kabul)] transition duration-400 ease-in-out">
-    <img src="../assets/images/pets.png" alt="cat paw" />
+  <button @click="playSound" class="bg-[var(--bazaar)] w-[44px] h-[44px] rounded-full flex items-center justify-center hover:bg-[var(--kabul)] transition duration-400 ease-in-out">
+    <img src="../assets/images/pets.png" alt="cat paw" class="w-[20px] h-[20px]" />
   </button>
 
   
