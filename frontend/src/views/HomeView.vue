@@ -2,6 +2,7 @@
 import { ref, onMounted } from 'vue';
 import SoundButton from '../components/SoundButton.vue';
 import Message from '../components/Message.vue';
+import HeaderMenu from '../components/HeaderMenu.vue';
 
 const image = ref('')
 const imageId = ref('')
@@ -55,7 +56,11 @@ onMounted(() => {
 </script>
 
 <template>
+  <HeaderMenu />
+  <RouterLink to="/auth">Sign up</RouterLink>
+
   <Message :message="message" :status="status" />
+  
   <main class="linear h-screen w-screen flex justify-center items-center">
     <div class="max-w-[520px] w-full p-[20px] bg-[var(--cold-turkey)] flex-col items-center rounded-[24px] shadow-lg">
         <img :src="image" alt="" class="w-full h-[400px] object-cover mb-20px rounded-[18px] shadow-xs" />
