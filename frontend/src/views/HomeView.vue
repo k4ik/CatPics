@@ -4,6 +4,7 @@ import SoundButton from '../components/SoundButton.vue';
 import Message from '../components/Message.vue';
 
 const image = ref('')
+const imageId = ref('')
 const message = ref('')
 const status = ref('')
 
@@ -13,9 +14,38 @@ const getPictures = async () => {
     const data = await response.json();
 
     image.value = data[0]["url"];
+    imageId.value = data[0]["id"];
   } catch(e) {
       message.value = e.message;
       status.value = "error";
+  }
+}
+
+const savePictures = async () => {
+  try {
+    const response = await fetch('http://localhost:8000/image/save', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        image: image.value,
+        id: imageId.value
+      })
+    })
+
+    if (!response.ok) {
+      message.value = "Failed to save image";
+    }
+
+    const data = await response.json();
+    if (data.success) {
+      message.value = data.success;
+      status.value = "success"
+    }
+  } catch(e) {
+    message.value = e.message;
+    status.value = "error";
   }
 }
 
@@ -34,7 +64,7 @@ onMounted(() => {
         <button @click="getPictures" class="h-[44px] bg-[var(--bazaar)] w-[120px] flex items-center justify-center mx-4 hover:bg-[var(--kabul)] transition duration-400 ease-in-out">
           <img src="../assets/images/refresh.png" alt="refresh" class="w-[20px] h-[20px]" />
         </button>
-        <button class="h-[44px] bg-[var(--bazaar)] w-[44px] flex items-center justify-center rounded-full hover:bg-[var(--kabul)] transition duration-400 ease-in-out">
+        <button @click.prevent="savePictures" class="h-[44px] bg-[var(--bazaar)] w-[44px] flex items-center justify-center rounded-full hover:bg-[var(--kabul)] transition duration-400 ease-in-out">
           <img src="../assets/images/star.png" alt="star" class="w-[20px] h-[20px]" />
         </button>
       </div>
