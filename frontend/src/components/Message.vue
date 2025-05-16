@@ -1,4 +1,5 @@
 <script setup>
+import { ref, onMounted } from 'vue';
 defineProps(['message', 'status']);
 
 const visible = ref(true);
