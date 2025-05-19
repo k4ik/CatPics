@@ -57,8 +57,6 @@ onMounted(() => {
 
 <template>
   <HeaderMenu />
-  <RouterLink to="/auth">Sign up</RouterLink>
-
   <Message :message="message" :status="status" />
   
   <main class="linear h-screen w-screen flex justify-center items-center">
