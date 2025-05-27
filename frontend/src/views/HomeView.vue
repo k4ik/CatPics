@@ -24,7 +24,7 @@ const getPictures = async () => {
 
 const savePictures = async () => {
   try {
-    const response = await fetch('http://localhost:8000/image/save', {
+    const response = await fetch('http://localhost:8000/api/image/save', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -37,6 +37,7 @@ const savePictures = async () => {
 
     if (!response.ok) {
       message.value = "Failed to save image";
+      status.value = "error";
     }
 
     const data = await response.json();
